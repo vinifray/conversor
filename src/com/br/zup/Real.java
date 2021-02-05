@@ -1,5 +1,7 @@
 package com.br.zup;
 
+import java.text.DecimalFormat;
+
 public class Real {
     private double reias;
 
@@ -9,7 +11,9 @@ public class Real {
 
     public double converterParaDolar(){
         double resultado = this.reias / 5.35;
-        return resultado;
+        DecimalFormat formatador = new DecimalFormat("#.##");
+        String valorFormatado = formatador.format(resultado).replace(",", ".");
+        return Double.valueOf(valorFormatado);
     }
 
     public double getReias() {
